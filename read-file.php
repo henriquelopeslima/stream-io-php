@@ -2,10 +2,9 @@
 
 $file = fopen('list-courses.txt', 'r');
 
-while (!feof($file)) {
-    $course = fgets($file);
+$sizeFile = filesize('list-courses.txt');
+$courses = fread($file, $sizeFile);
 
-    echo $course . PHP_EOL;
-}
+echo $courses;
 
 fclose($file);
