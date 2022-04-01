@@ -1,10 +1,5 @@
 <?php
 
-$file = fopen('list-courses.txt', 'r');
-
-$sizeFile = filesize('list-courses.txt');
-$courses = fread($file, $sizeFile);
+$courses = file_get_contents('list-courses.txt');
 
 echo $courses;
-
-fclose($file);
