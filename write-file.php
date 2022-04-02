@@ -1,9 +1,5 @@
 <?php
 
-$file = fopen('list-courses.txt', 'a');
-
 $course = PHP_EOL.'Do zero ao avançado em 24 horas';
 
-fwrite($file, $course);
-
-fclose($file);
+file_put_contents('list-courses.txt', $course, FILE_APPEND);
