@@ -10,10 +10,10 @@
 
 FROM php:8-fpm-alpine
 
-RUN apk add --update --no-cache libintl icu icu-dev postgresql-dev pcre-dev $PHPIZE_DEPS \
+RUN apk add --update --no-cache libintl icu icu-dev postgresql-dev pcre-dev libzip-dev $PHPIZE_DEPS \
  && pecl install redis xdebug \
  && docker-php-ext-enable xdebug redis \
- && docker-php-ext-install intl pdo pdo_pgsql \
+ && docker-php-ext-install intl pdo pdo_pgsql zip \
  && cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
  && sed -i 's/variables_order = "GPCS"/variables_order = "EGPCS"/g' /usr/local/etc/php/php.ini-*
 
